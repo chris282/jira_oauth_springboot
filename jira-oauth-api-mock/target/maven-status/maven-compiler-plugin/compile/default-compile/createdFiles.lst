@@ -1,0 +1,11 @@
+oauth\JiraOAuthGetAccessToken.class
+oauth\OAuthClient.class
+rest\RestApplicationEndpoint.class
+oauth\Command.class
+META-INF\spring.components
+oauth\JiraOAuthGetTemporaryToken.class
+oauth\JiraOAuthTokenFactory.class
+oauth\OAuthClientRunner.class
+oauth\PropertiesClient.class
+oauth\JiraOAuthClient.class
+application\Application.class

@@ -1,0 +1,4 @@
+#
+#Mon Sep 23 15:12:36 CEST 2019
+rest.RestApplicationEndpoint=org.springframework.stereotype.Component
+application.Application=org.springframework.stereotype.Component

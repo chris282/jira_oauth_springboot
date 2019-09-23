@@ -1,0 +1,164 @@
+2019-08-30 16:27:16,870 https-jsse-nio-8443-exec-24 ERROR anonymous 987x20180x1 - 10.149.144.21 /plugins/servlet/oauth/request-token [c.a.plugin.servlet.ServletModuleContainerServlet] net.oauth.OAuthException: java.security.SignatureException: Signature length not correct: got 256 but was expecting 128
+javax.servlet.ServletException: net.oauth.OAuthException: java.security.SignatureException: Signature length not correct: got 256 but was expecting 128
+	at net.oauth.server.OAuthServlet.handleException(OAuthServlet.java:104)
+	at com.atlassian.oauth.serviceprovider.internal.servlet.RequestTokenServlet.doPostInTransaction(RequestTokenServlet.java:125)
+	at com.atlassian.oauth.serviceprovider.internal.servlet.TransactionalServlet$2.serve(TransactionalServlet.java:48)
+	at com.atlassian.oauth.serviceprovider.internal.servlet.TransactionalServlet$3.doInTransaction(TransactionalServlet.java:57)
+	at com.atlassian.oauth.serviceprovider.internal.servlet.TransactionalServlet$3.doInTransaction(TransactionalServlet.java:54)
+	at com.atlassian.sal.core.transaction.HostContextTransactionTemplate$1.doInTransaction(HostContextTransactionTemplate.java:21)
+	at com.atlassian.jira.DefaultHostContextAccessor.doInTransaction(DefaultHostContextAccessor.java:34)
+	... 2 filtered
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.atlassian.plugin.util.ContextClassLoaderSettingInvocationHandler.invoke(ContextClassLoaderSettingInvocationHandler.java:26)
+	at com.sun.proxy.$Proxy368.doInTransaction(Unknown Source)
+	... 2 filtered
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.atlassian.plugin.osgi.bridge.external.HostComponentFactoryBean$DynamicServiceInvocationHandler.invoke(HostComponentFactoryBean.java:136)
+	at com.sun.proxy.$Proxy368.doInTransaction(Unknown Source)
+	at com.atlassian.sal.core.transaction.HostContextTransactionTemplate.execute(HostContextTransactionTemplate.java:18)
+	... 2 filtered
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.eclipse.gemini.blueprint.service.importer.support.internal.aop.ServiceInvoker.doInvoke(ServiceInvoker.java:56)
+	at org.eclipse.gemini.blueprint.service.importer.support.internal.aop.ServiceInvoker.invoke(ServiceInvoker.java:60)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.support.DelegatingIntroductionInterceptor.doProceed(DelegatingIntroductionInterceptor.java:133)
+	at org.springframework.aop.support.DelegatingIntroductionInterceptor.invoke(DelegatingIntroductionInterceptor.java:121)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.eclipse.gemini.blueprint.service.util.internal.aop.ServiceTCCLInterceptor.invokeUnprivileged(ServiceTCCLInterceptor.java:70)
+	at org.eclipse.gemini.blueprint.service.util.internal.aop.ServiceTCCLInterceptor.invoke(ServiceTCCLInterceptor.java:53)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.eclipse.gemini.blueprint.service.importer.support.LocalBundleContextAdvice.invoke(LocalBundleContextAdvice.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.support.DelegatingIntroductionInterceptor.doProceed(DelegatingIntroductionInterceptor.java:133)
+	at org.springframework.aop.support.DelegatingIntroductionInterceptor.invoke(DelegatingIntroductionInterceptor.java:121)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy1363.execute(Unknown Source)
+	at com.atlassian.oauth.serviceprovider.internal.servlet.TransactionalServlet.serve(TransactionalServlet.java:54)
+	at com.atlassian.oauth.serviceprovider.internal.servlet.TransactionalServlet.doPost(TransactionalServlet.java:32)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at com.atlassian.plugin.servlet.DelegatingPluginServlet.service(DelegatingPluginServlet.java:37)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at com.atlassian.plugin.servlet.ServletModuleContainerServlet.service(ServletModuleContainerServlet.java:45)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	... 57 filtered
+	at com.atlassian.web.servlet.plugin.request.RedirectInterceptingFilter.doFilter(RedirectInterceptingFilter.java:21)
+	... 58 filtered
+	at com.atlassian.jira.security.JiraSecurityFilter.lambda$doFilter$0(JiraSecurityFilter.java:66)
+	... 1 filtered
+	at com.atlassian.jira.security.JiraSecurityFilter.doFilter(JiraSecurityFilter.java:64)
+	... 16 filtered
+	at ru.andreymarkelov.atlas.plugins.promjiraexporter.servlet.AllEndpointFilter$1.run(AllEndpointFilter.java:44)
+	at ru.andreymarkelov.atlas.plugins.promjiraexporter.service.MetricCollectorImpl.requestDuration(MetricCollectorImpl.java:275)
+	at ru.andreymarkelov.atlas.plugins.promjiraexporter.servlet.AllEndpointFilter.doFilter(AllEndpointFilter.java:39)
+	... 23 filtered
+	at com.atlassian.jira.servermetrics.CorrelationIdPopulatorFilter.doFilter(CorrelationIdPopulatorFilter.java:30)
+	... 10 filtered
+	at com.atlassian.web.servlet.plugin.request.RedirectInterceptingFilter.doFilter(RedirectInterceptingFilter.java:21)
+	... 4 filtered
+	at com.atlassian.web.servlet.plugin.LocationCleanerFilter.doFilter(LocationCleanerFilter.java:36)
+	... 26 filtered
+	at com.atlassian.jira.servermetrics.MetricsCollectorFilter.doFilter(MetricsCollectorFilter.java:25)
+	... 23 filtered
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: net.oauth.OAuthException: java.security.SignatureException: Signature length not correct: got 256 but was expecting 128
+	at net.oauth.signature.RSA_SHA1.isValid(RSA_SHA1.java:214)
+	at net.oauth.signature.OAuthSignatureMethod.validate(OAuthSignatureMethod.java:68)
+	at net.oauth.SimpleOAuthValidator.validateSignature(SimpleOAuthValidator.java:254)
+	at net.oauth.SimpleOAuthValidator.validateMessage(SimpleOAuthValidator.java:148)
+	at com.atlassian.oauth.serviceprovider.internal.OAuthValidatorImpl.validateMessage(OAuthValidatorImpl.java:44)
+	... 276 more
+Caused by: java.security.SignatureException: Signature length not correct: got 256 but was expecting 128
+	at sun.security.rsa.RSASignature.engineVerify(RSASignature.java:189)
+	at java.security.Signature$Delegate.engineVerify(Signature.java:1219)
+	at java.security.Signature.verify(Signature.java:652)
+	at net.oauth.signature.RSA_SHA1.verify(RSA_SHA1.java:240)
+	at net.oauth.signature.RSA_SHA1.isValid(RSA_SHA1.java:209)
+2019-08-30 16:27:16,939 https-jsse-nio-8443-exec-24 ERROR   -   [c.a.j.web.servlet.InternalServerErrorServlet] {errorId=38d9db06-6d06-48ca-853c-2df5031c83cd, interpretedMsg=, cause=, stacktrace=, referer=Unknown, servletErrorMessage=net.oauth.OAuthException: java.security.SignatureException: Signature length not correct: got 256 but was expecting 128}
+2019-08-30 16:29:17,391 https-jsse-nio-8443-exec-21 ERROR anonymous 989x20181x1 - 10.149.144.21 /plugins/servlet/oauth/request-token [c.a.plugin.servlet.ServletModuleContainerServlet] net.oauth.OAuthException: java.security.SignatureException: Signature length not correct: got 256 but was expecting 128
+javax.servlet.ServletException: net.oauth.OAuthException: java.security.SignatureException: Signature length not correct: got 256 but was expecting 128
+	at net.oauth.server.OAuthServlet.handleException(OAuthServlet.java:104)
+	at com.atlassian.oauth.serviceprovider.internal.servlet.RequestTokenServlet.doPostInTransaction(RequestTokenServlet.java:125)
+	at com.atlassian.oauth.serviceprovider.internal.servlet.TransactionalServlet$2.serve(TransactionalServlet.java:48)
+	at com.atlassian.oauth.serviceprovider.internal.servlet.TransactionalServlet$3.doInTransaction(TransactionalServlet.java:57)
+	at com.atlassian.oauth.serviceprovider.internal.servlet.TransactionalServlet$3.doInTransaction(TransactionalServlet.java:54)
+	at com.atlassian.sal.core.transaction.HostContextTransactionTemplate$1.doInTransaction(HostContextTransactionTemplate.java:21)
+	at com.atlassian.jira.DefaultHostContextAccessor.doInTransaction(DefaultHostContextAccessor.java:34)
+	... 2 filtered
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.atlassian.plugin.util.ContextClassLoaderSettingInvocationHandler.invoke(ContextClassLoaderSettingInvocationHandler.java:26)
+	at com.sun.proxy.$Proxy368.doInTransaction(Unknown Source)
+	... 2 filtered
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.atlassian.plugin.osgi.bridge.external.HostComponentFactoryBean$DynamicServiceInvocationHandler.invoke(HostComponentFactoryBean.java:136)
+	at com.sun.proxy.$Proxy368.doInTransaction(Unknown Source)
+	at com.atlassian.sal.core.transaction.HostContextTransactionTemplate.execute(HostContextTransactionTemplate.java:18)
+	... 2 filtered
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)
+	at org.eclipse.gemini.blueprint.service.importer.support.internal.aop.ServiceInvoker.doInvoke(ServiceInvoker.java:56)
+	at org.eclipse.gemini.blueprint.service.importer.support.internal.aop.ServiceInvoker.invoke(ServiceInvoker.java:60)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.support.DelegatingIntroductionInterceptor.doProceed(DelegatingIntroductionInterceptor.java:133)
+	at org.springframework.aop.support.DelegatingIntroductionInterceptor.invoke(DelegatingIntroductionInterceptor.java:121)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.eclipse.gemini.blueprint.service.util.internal.aop.ServiceTCCLInterceptor.invokeUnprivileged(ServiceTCCLInterceptor.java:70)
+	at org.eclipse.gemini.blueprint.service.util.internal.aop.ServiceTCCLInterceptor.invoke(ServiceTCCLInterceptor.java:53)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.eclipse.gemini.blueprint.service.importer.support.LocalBundleContextAdvice.invoke(LocalBundleContextAdvice.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.support.DelegatingIntroductionInterceptor.doProceed(DelegatingIntroductionInterceptor.java:133)
+	at org.springframework.aop.support.DelegatingIntroductionInterceptor.invoke(DelegatingIntroductionInterceptor.java:121)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
+	at com.sun.proxy.$Proxy1363.execute(Unknown Source)
+	at com.atlassian.oauth.serviceprovider.internal.servlet.TransactionalServlet.serve(TransactionalServlet.java:54)
+	at com.atlassian.oauth.serviceprovider.internal.servlet.TransactionalServlet.doPost(TransactionalServlet.java:32)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at com.atlassian.plugin.servlet.DelegatingPluginServlet.service(DelegatingPluginServlet.java:37)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at com.atlassian.plugin.servlet.ServletModuleContainerServlet.service(ServletModuleContainerServlet.java:45)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	... 57 filtered
+	at com.atlassian.web.servlet.plugin.request.RedirectInterceptingFilter.doFilter(RedirectInterceptingFilter.java:21)
+	... 58 filtered
+	at com.atlassian.jira.security.JiraSecurityFilter.lambda$doFilter$0(JiraSecurityFilter.java:66)
+	... 1 filtered
+	at com.atlassian.jira.security.JiraSecurityFilter.doFilter(JiraSecurityFilter.java:64)
+	... 16 filtered
+	at ru.andreymarkelov.atlas.plugins.promjiraexporter.servlet.AllEndpointFilter$1.run(AllEndpointFilter.java:44)
+	at ru.andreymarkelov.atlas.plugins.promjiraexporter.service.MetricCollectorImpl.requestDuration(MetricCollectorImpl.java:275)
+	at ru.andreymarkelov.atlas.plugins.promjiraexporter.servlet.AllEndpointFilter.doFilter(AllEndpointFilter.java:39)
+	... 23 filtered
+	at com.atlassian.jira.servermetrics.CorrelationIdPopulatorFilter.doFilter(CorrelationIdPopulatorFilter.java:30)
+	... 10 filtered
+	at com.atlassian.web.servlet.plugin.request.RedirectInterceptingFilter.doFilter(RedirectInterceptingFilter.java:21)
+	... 4 filtered
+	at com.atlassian.web.servlet.plugin.LocationCleanerFilter.doFilter(LocationCleanerFilter.java:36)
+	... 26 filtered
+	at com.atlassian.jira.servermetrics.MetricsCollectorFilter.doFilter(MetricsCollectorFilter.java:25)
+	... 23 filtered
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: net.oauth.OAuthException: java.security.SignatureException: Signature length not correct: got 256 but was expecting 128
+	at net.oauth.signature.RSA_SHA1.isValid(RSA_SHA1.java:214)
+	at net.oauth.signature.OAuthSignatureMethod.validate(OAuthSignatureMethod.java:68)
+	at net.oauth.SimpleOAuthValidator.validateSignature(SimpleOAuthValidator.java:254)
+	at net.oauth.SimpleOAuthValidator.validateMessage(SimpleOAuthValidator.java:148)
+	at com.atlassian.oauth.serviceprovider.internal.OAuthValidatorImpl.validateMessage(OAuthValidatorImpl.java:44)
+	... 276 more
+Caused by: java.security.SignatureException: Signature length not correct: got 256 but was expecting 128
+	at sun.security.rsa.RSASignature.engineVerify(RSASignature.java:189)
+	at java.security.Signature$Delegate.engineVerify(Signature.java:1219)
+	at java.security.Signature.verify(Signature.java:652)
+	at net.oauth.signature.RSA_SHA1.verify(RSA_SHA1.java:240)
+	at net.oauth.signature.RSA_SHA1.isValid(RSA_SHA1.java:209)
+2019-08-30 16:29:17,402 https-jsse-nio-8443-exec-21 ERROR   -   [c.a.j.web.servlet.InternalServerErrorServlet] {errorId=1aefb4f6-0701-417b-bc5f-8dbd9b0c51ae, interpretedMsg=, cause=, stacktrace=, referer=Unknown, servletErrorMessage=net.oauth.OAuthException: java.security.SignatureException: Signature length not correct: got 256 but was expecting 128}
